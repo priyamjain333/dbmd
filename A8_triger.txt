@@ -1,0 +1,29 @@
+//statement level  update
+//create table Student31252(Roll number,Name varchar2(10),Dateof DATE,branch varchar2(10),percent number,Status varchar2(10),primary key(Roll));
+insert into Student31252 values(1,'Jon','01-aug-2017','cs',98,'passout');
+insert into Student31252 values(2,'Jhonny','01-jan-2017','it',98,'passout');
+insert into Student31252 values(3,'Janardan','05-aug-2017','it',98,'passout');
+select * from Student31252;
+//create table Alumni31252(Roll1 number,Name varchar2(20),branch varchar2(20),Status varchar2(20),primary key(Roll1));
+
+
+CREATE TRIGGER t_name1
+After update or delete on Student31252
+for each row
+Declare
+v_rec Student31252 %ROWTYPE;
+CURSOR c_trig is
+select Roll,Name,branch,Status from Student31252;
+BEGIN 
+
+FOR v_rec in c_trig loop
+update Student31252
+set status ='passout';
+where Dateof <'1-Aug-2016';
+
+IF SQL%FOUND THEN
+insert into Alumni31252(Roll,name,branch,Status)
+values(v_rec.Roll,v_rsec.name,v_rec.branch,v_rec.Status);
+end if;
+end loop;
+end t_name;
