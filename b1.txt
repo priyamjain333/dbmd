@@ -1,0 +1,598 @@
+[TE@localhost ~]$ cd mongodb-linux-x86_64-3.0.4/bin
+[TE@localhost bin]$ ./mongo 10.10.15.202/te3412db -u te3412db -p
+MongoDB shell version: 3.0.4
+Enter password: 
+connecting to: 10.10.15.202/te3412db
+2019-09-09T16:42:10.844+0530 W NETWORK  Failed to connect to 10.10.15.202:27017, reason: errno:101 Network is unreachable
+2019-09-09T16:42:10.845+0530 E QUERY    Error: couldn't connect to server 10.10.15.202:27017 (10.10.15.202), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+exception: connect failed
+[TE@localhost bin]$ ./mongo 10.10.15.202/te3412db -u te3412db -p
+MongoDB shell version: 3.0.4
+Enter password: 
+connecting to: 10.10.15.202/te3412db
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	http://docs.mongodb.org/
+Questions? Try the support group
+	http://groups.google.com/group/mongodb-user
+Server has startup warnings: 
+2019-09-09T13:10:30.965+0530 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2019-09-09T13:10:30.965+0530 I CONTROL  [initandlisten] 
+2019-09-09T13:10:30.965+0530 I CONTROL  [initandlisten] 
+2019-09-09T13:10:30.965+0530 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2019-09-09T13:10:30.965+0530 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2019-09-09T13:10:30.965+0530 I CONTROL  [initandlisten] 
+> db.createCollection("Student"){"ok":1}
+2019-09-09T16:53:21.044+0530 E QUERY    SyntaxError: Unexpected token {
+> db.createCollection("Students"){ "ok" : 1 }
+2019-09-09T16:54:30.310+0530 E QUERY    SyntaxError: Unexpected token {
+> db.createCollection("Students")
+{ db.Students.insert({Roll no: 1,Name:'Vaishnavi',Class: 'TE',City: 'Kolhapur'}),
+... 
+... 
+> 
+> db.Students.insert({Roll no: 1,Name:'Vaishnavi',Class: 'TE',City: 'Kolhapur'})
+2019-09-09T17:08:32.622+0530 E QUERY    SyntaxError: Unexpected identifier
+> db.Students.insert({Roll_no: 1,Name:'Vaishnavi',Class: 'TE',City: 'Kolhapur'})
+WriteResult({ "nInserted" : 1 })
+> db.Students.insert({Roll_no: 2,Name:'Yashasvi',Class: 'TE',City: 'Mumbai'})
+WriteResult({ "nInserted" : 1 })
+> show collections
+Students
+system.indexes
+> db.Students.find()
+{ "_id" : ObjectId("5d7639ec0151349837c26468"), "Roll_no" : 1, "Name" : "Vaishnavi", "Class" : "TE", "City" : "Kolhapur" }
+{ "_id" : ObjectId("5d763a1f0151349837c26469"), "Roll_no" : 2, "Name" : "Yashasvi", "Class" : "TE", "City" : "Mumbai" }
+> db.Students.pretty()
+2019-09-09T17:14:43.296+0530 E QUERY    TypeError: Property 'pretty' of object te3412db.Students is not a function
+    at (shell):1:13
+> 
+
+
+> db.Students.find()
+{ "_id" : ObjectId("5d7639ec0151349837c26468"), "Roll_no" : 1, "Name" : "Vaishnavi", "Class" : "TE", "City" : "Kolhapur" }
+{ "_id" : ObjectId("5d763a1f0151349837c26469"), "Roll_no" : 2, "Name" : "Yashasvi", "Class" : "TE", "City" : "Mumbai" }
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d763a1f0151349837c26469"),
+	"Roll_no" : 2,
+	"Name" : "Yashasvi",
+	"Class" : "TE",
+	"City" : "Mumbai"
+}
+> db.Students.insert({Roll_no: 3,Name:'Prasanna',Class: 'TE',City: 'Kolhapur'})
+WriteResult({ "nInserted" : 1 })
+> db.Students.find({$and: [{"Class":"TE"},{"City":"Kolhapur"}]}).pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Prasanna",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+>  ./mongo 10.10.15.202/te3412db -u te3412db -p
+2019-09-20T15:39:56.315+0530 E QUERY    SyntaxError: Unexpected token .
+>  db.Students.find({$or: [{"Class":"TE"},{"City":"Kolhapur"}]}).pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d763a1f0151349837c26469"),
+	"Roll_no" : 2,
+	"Name" : "Yashasvi",
+	"Class" : "TE",
+	"City" : "Mumbai"
+}
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Prasanna",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+>  db.Students.find({$and: [{"Class":"TE"},{"City":"Kolhapur"}]}).pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Prasanna",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+> db.Students.update({"Name":"Prasanna"},{$set:{"Name":"Pranavraj"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d763a1f0151349837c26469"),
+	"Roll_no" : 2,
+	"Name" : "Yashasvi",
+	"Class" : "TE",
+	"City" : "Mumbai"
+}
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+> db.Students.update({"Class":"TE"},{$set:{"Class":"TY"}},{multi:true})
+WriteResult({ "nMatched" : 3, "nUpserted" : 0, "nModified" : 3 })
+>  db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d763a1f0151349837c26469"),
+	"Roll_no" : 2,
+	"Name" : "Yashasvi",
+	"Class" : "TY",
+	"City" : "Mumbai"
+}
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+> db.Students.remove({"Roll_no":2})
+WriteResult({ "nRemoved" : 1 })
+>  db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d7639ec0151349837c26468"),
+	"Roll_no" : 1,
+	"Name" : "Vaishnavi",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+> db.Students.remove({"Class":"TY"},1)
+WriteResult({ "nRemoved" : 1 })
+>  db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+> 
+
+
+> db.Students.insert({Roll_no: 3,Name:'Prasanna',Class: 'TE',City: 'Kolhapur'})
+WriteResult({ "nInserted" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : 3,
+	"Name" : "Prasanna",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+> 
+
+
+[TE@localhost ~]$ cd mongodb-linux-x86_64-3.0.4/bin
+[TE@localhost bin]$ ./mongo 10.10.15.202/te3412db -u te3412db -p
+MongoDB shell version: 3.0.4
+Enter password: 
+connecting to: 10.10.15.202/te3412db
+> db.Students.update({"Name":"Prasanna"},{$set:{"Roll_no":"2"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : "2",
+	"Name" : "Prasanna",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+> db.Students.update({"Name":"Prasanna"},{$set:{"Roll_no":"4"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : "4",
+	"Name" : "Prasanna",
+	"Class" : "TE",
+	"City" : "Kolhapur"
+}
+> db.Students.insert({Roll_no: 5,Name:'Aditi',Class: 'TY',City: 'Pune'})
+WriteResult({ "nInserted" : 1 })
+> db.Students.update({"Name":"Prasanna"},{$set:{"Roll_no":"4"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+> db.Students.update({"Name":"Prasanna"},{$set:{"Roll_no":"4"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+> db.Students.update({"Name":"Prasanna"},{$set:{"Class":"TY"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : "4",
+	"Name" : "Prasanna",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d85f4f91a7e9d443a10b573"),
+	"Roll_no" : 5,
+	"Name" : "Aditi",
+	"Class" : "TY",
+	"City" : "Pune"
+}
+---------------------------------------------------------------------------------------------later-------------------------------------------
+> db.Students.find()
+{ "_id" : ObjectId("5d84a4bc7638f562daa67c21"), "Roll_no" : 3, "Name" : "Pranavraj", "Class" : "TY", "City" : "Kolhapur" }
+{ "_id" : ObjectId("5d84b9d17638f562daa67c22"), "Roll_no" : 4, "Name" : "Prasanna", "Class" : "TY", "City" : "Kolhapur" }
+{ "_id" : ObjectId("5d85f4f91a7e9d443a10b573"), "Roll_no" : 5, "Name" : "Aditi", "Class" : "TY", "City" : "Pune" }
+> db.Students.save({"_id" : ObjectId(5d84a4bc7638f562daa67c21),"Class":"FY"})
+2019-09-23T16:52:20.463+0530 E QUERY    SyntaxError: Unexpected token ILLEGAL
+> db.Students.save({"_id" : ObjectId("5d84a4bc7638f562daa67c21"),"Class":"FY"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find()
+{ "_id" : ObjectId("5d84a4bc7638f562daa67c21"), "Class" : "FY" }
+{ "_id" : ObjectId("5d84b9d17638f562daa67c22"), "Roll_no" : 4, "Name" : "Prasanna", "Class" : "TY", "City" : "Kolhapur" }
+{ "_id" : ObjectId("5d85f4f91a7e9d443a10b573"), "Roll_no" : 5, "Name" : "Aditi", "Class" : "TY", "City" : "Pune" }
+> db.Students.find().pretty()
+{ "_id" : ObjectId("5d84a4bc7638f562daa67c21"), "Class" : "FY" }
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : 4,
+	"Name" : "Prasanna",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d85f4f91a7e9d443a10b573"),
+	"Roll_no" : 5,
+	"Name" : "Aditi",
+	"Class" : "TY",
+	"City" : "Pune"
+}
+> db.Students.save({"_id" : ObjectId("5d84a4bc7638f562daa67c21"),"Roll_no": 3,"Name": "Pranavraj","Class":"FY","City":"Pune"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "FY",
+	"City" : "Pune"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : 4,
+	"Name" : "Prasanna",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d85f4f91a7e9d443a10b573"),
+	"Roll_no" : 5,
+	"Name" : "Aditi",
+	"Class" : "TY",
+	"City" : "Pune"
+}
+> 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+> db.Students.ensureIndex({"Name":1})
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : "4",
+	"Name" : "Prasanna",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d85f4f91a7e9d443a10b573"),
+	"Roll_no" : 5,
+	"Name" : "Aditi",
+	"Class" : "TY",
+	"City" : "Pune"
+}
+> db.Students.aggregate([{$group : {"Class":"TY",CTotal : {$sum:1}}}])
+assert: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:13
+2019-09-21T15:41:41.628+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:13 at src/mongo/shell/assert.js:13
+> db.Students.aggregate([{$group : {Class:"TY",CTotal : {$sum:1}}}])
+assert: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:13
+2019-09-21T15:42:46.187+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:13 at src/mongo/shell/assert.js:13
+> db.Students.aggregate([{$group : {"Class":"$TY",CTotal : {$sum:1}}}])
+assert: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:13
+2019-09-21T15:43:53.194+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'Class' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:13 at src/mongo/shell/assert.js:13
+> db.Students.aggregate([{$group : {_id:"Class",CTotal : {$sum:1}}}])
+{ "_id" : "Class", "CTotal" : 3 }
+> db.Students.aggregate([{$group : {_id:"City",CiTotal : {$sum:1}}}])
+{ "_id" : "City", "CiTotal" : 3 }
+> db.Students.aggregate([{$group : {_id:"$TY",CTotal : {$sum:1}}}])
+{ "_id" : null, "CTotal" : 3 }
+> db.Students.aggregate([{$group : {_id:"$Class",CTotal : {$sum:1}}}])
+{ "_id" : "TY", "CTotal" : 3 }
+> db.Students.aggregate([{$group : {_id:"$CityTY",CiTotal : {$sum:1}}}])
+{ "_id" : null, "CiTotal" : 3 }
+> db.Students.aggregate([{$group : {_id:"$City",CiTotal : {$sum:1}}}])
+{ "_id" : "Pune", "CiTotal" : 1 }
+{ "_id" : "Kolhapur", "CiTotal" : 2 }
+> db.Students.aggregate([{$match: {City:"Kolhapur"}},{$group:{_id:"$Name",total:{$sum:1}}}])
+{ "_id" : "Prasanna", "total" : 1 }
+{ "_id" : "Pranavraj", "total" : 1 }
+> db.Students.aggregate([{$match: {City:"Kolhapur"}},{$group:{_id:"$Name",total:{$sum:"$Roll_no"}}}])
+{ "_id" : "Prasanna", "total" : 0 }
+{ "_id" : "Pranavraj", "total" : 3 }
+> db.Students.aggregate([{$match: {City:"Kolhapur"}},{$group:{_id:"$Name",total:{$sum:"$Class"}}}])
+{ "_id" : "Prasanna", "total" : 0 }
+{ "_id" : "Pranavraj", "total" : 0 }
+> db.Students.aggregate([{$group : {_id:"$Class",CTotall : {$min:1}}}])
+{ "_id" : "TY", "CTotall" : 1 }
+> db.Students.aggregate([{$group : {_id:"$Class",CTotal : {$max:1}}}])
+{ "_id" : "TY", "CTotal" : 1 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cmax : {$max:1}}}])
+{ "_id" : "TY", "Cmax" : 1 }
+> db.Students.aggregate([{$group : {_id:"$City",Cimax : {$max:1}}}])
+{ "_id" : "Pune", "Cimax" : 1 }
+{ "_id" : "Kolhapur", "Cimax" : 1 }
+> db.Students.aggregate([{$group : {_id:"$City",Cimax : {$max:"$Roll_no"}}}])
+{ "_id" : "Pune", "Cimax" : 5 }
+{ "_id" : "Kolhapur", "Cimax" : "4" }
+> db.Students.aggregate([{$group : {_id:"$City",Cimin : {$min:"$Roll_no"}}}])
+{ "_id" : "Pune", "Cimin" : 5 }
+{ "_id" : "Kolhapur", "Cimin" : 3 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cmin : {$min:"$Roll_no"}}}])
+{ "_id" : "TY", "Cmin" : 3 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cmax : {$max:"$Roll_no"}}}])
+{ "_id" : "TY", "Cmax" : "4" }
+> db.Students.update({"Name":"Prasanna"},{$set:{"Roll_no":4}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Students.find().pretty()
+{
+	"_id" : ObjectId("5d84a4bc7638f562daa67c21"),
+	"Roll_no" : 3,
+	"Name" : "Pranavraj",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d84b9d17638f562daa67c22"),
+	"Roll_no" : 4,
+	"Name" : "Prasanna",
+	"Class" : "TY",
+	"City" : "Kolhapur"
+}
+{
+	"_id" : ObjectId("5d85f4f91a7e9d443a10b573"),
+	"Roll_no" : 5,
+	"Name" : "Aditi",
+	"Class" : "TY",
+	"City" : "Pune"
+}
+> db.Students.aggregate([{$group : {_id:"$Class",Cmin : {$min:"$Roll_no"}}}])
+{ "_id" : "TY", "Cmin" : 3 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cmax : {$max:"$Roll_no"}}}])
+{ "_id" : "TY", "Cmax" : 5 }
+> db.Students.aggregate([{$group : {_id:"$City",Cimax : {$max:"$Roll_no"}}}])
+{ "_id" : "Pune", "Cimax" : 5 }
+{ "_id" : "Kolhapur", "Cimax" : 4 }
+> db.Students.aggregate([{$group : {_id:"$City",Cimin : {$min:"$Roll_no"}}}])
+{ "_id" : "Pune", "Cimin" : 5 }
+{ "_id" : "Kolhapur", "Cimin" : 3 }
+> db.Students.aggregate([{$group : {_id:"$City",Cimin : {$min:1}}}])
+{ "_id" : "Pune", "Cimin" : 1 }
+{ "_id" : "Kolhapur", "Cimin" : 1 }
+> db.Students.aggregate([{$group : {_id:"$City",Cimax : {$max:1}}}])
+{ "_id" : "Pune", "Cimax" : 1 }
+{ "_id" : "Kolhapur", "Cimax" : 1 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cimin : {$min:1}}}])
+{ "_id" : "TY", "Cimin" : 1 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cimax : {$max:1}}}])
+{ "_id" : "TY", "Cimax" : 1 }
+> db.Students.aggregate([{$group : {_id:"$City",Ciavg : {$avg:"$Roll_no"}}}])
+{ "_id" : "Pune", "Ciavg" : 5 }
+{ "_id" : "Kolhapur", "Ciavg" : 3.5 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cavg : {$avg:"$Roll_no"}}}])
+{ "_id" : "TY", "Cavg" : 4 }
+> db.Students.aggregate([{$group : {_id:"$City",Cif : {$first:"$Roll_no"}}}])
+{ "_id" : "Pune", "Cif" : 5 }
+{ "_id" : "Kolhapur", "Cif" : 3 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cf : {$first:"$Roll_no"}}}])
+{ "_id" : "TY", "Cf" : 3 }
+> db.Students.aggregate([{$group : {_id:"$City",Cil : {$last:"$Roll_no"}}}])
+{ "_id" : "Pune", "Cil" : 5 }
+{ "_id" : "Kolhapur", "Cil" : 4 }
+> db.Students.aggregate([{$group : {_id:"$Class",Cl : {$last:"$Roll_no"}}}])
+{ "_id" : "TY", "Cl" : 5 }
+> db.Students.createindex({Roll_no:1,Name:-1})
+2019-09-21T16:47:51.902+0530 E QUERY    TypeError: Property 'createindex' of object te3412db.Students is not a function
+    at (shell):1:13
+> db.Students.createIndex({Roll_no:1,Name:-1})
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 2,
+	"numIndexesAfter" : 3,
+	"ok" : 1
+}
+> db.Students.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "te3412db.Students"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"Name" : 1
+		},
+		"name" : "Name_1",
+		"ns" : "te3412db.Students"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"Roll_no" : 1,
+			"Name" : -1
+		},
+		"name" : "Roll_no_1_Name_-1",
+		"ns" : "te3412db.Students"
+	}
+]
+> 
+> 
+
