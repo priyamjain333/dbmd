@@ -1,0 +1,1036 @@
+[student@master ~]$ /home/student/mongodb-linux-x86_64-3.0.4/bin
+bash: /home/student/mongodb-linux-x86_64-3.0.4/bin: Is a directory
+[student@master ~]$ cd /home/student/mongodb-linux-x86_64-3.0.4/bin
+[student@master bin]$ ./mongo 10.10.10.54/t31252db -u t31252 -p t31252;
+MongoDB shell version: 3.0.4
+connecting to: 10.10.10.54/t31252db
+2019-10-01T10:19:56.528+0530 W NETWORK  Failed to connect to 10.10.10.54:27017, reason: errno:113 No route to host
+2019-10-01T10:19:56.491+0530 E QUERY    Error: couldn't connect to server 10.10.10.54:27017 (10.10.10.54), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+exception: connect failed
+[student@master bin]$ ./mongo 10.10.10.54/t31252db -u t31252 -p t31252;
+MongoDB shell version: 3.0.4
+connecting to: 10.10.10.54/t31252db
+2019-10-01T10:27:07.652+0530 W NETWORK  Failed to connect to 10.10.10.54:27017, reason: errno:113 No route to host
+2019-10-01T10:27:07.649+0530 E QUERY    Error: couldn't connect to server 10.10.10.54:27017 (10.10.10.54), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+exception: connect failed
+[student@master bin]$ ./mongo 10.10.10.54/t31252db -u t31252 -p t31252;
+MongoDB shell version: 3.0.4
+connecting to: 10.10.10.54/t31252db
+Server has startup warnings: 
+2019-10-01T10:29:27.998+0530 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2019-10-01T10:29:27.998+0530 I CONTROL  [initandlisten] 
+2019-10-01T10:29:27.998+0530 I CONTROL  [initandlisten] 
+2019-10-01T10:29:27.998+0530 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2019-10-01T10:29:27.998+0530 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2019-10-01T10:29:27.998+0530 I CONTROL  [initandlisten] 
+> db.Cricket.find().pretty();
+{
+	"_id" : ObjectId("5d773c78d1121bb4799bc352"),
+	"name" : "Priym Jain",
+	"age" : 20,
+	"teams" : [
+		"KKR",
+		"SRH",
+		"CSK"
+	],
+	"specialization" : [
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 7789,
+		"catches" : 352,
+		"years" : 11,
+		"SR" : 157.43,
+		"Avg_rt" : 67.32
+	}
+}
+{
+	"_id" : ObjectId("5d773e7ad1121bb4799bc34a"),
+	"name" : "raju",
+	"age" : 21,
+	"teams" : [
+		"DC",
+		"CSK"
+	],
+	"specialization" : [
+		"Bowler"
+	],
+	"information" : {
+		"wickets" : 609,
+		"catches" : 188,
+		"years" : 8,
+		"Avg" : 27.43,
+		"Economy" : 8.53
+	}
+}
+{
+	"_id" : ObjectId("5d774290d1121bb4799bc34b"),
+	"name" : "chintu",
+	"age" : 19,
+	"teams" : [
+		"KKR",
+		"MI"
+	],
+	"specialization" : [
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 9789,
+		"catches" : 288,
+		"years" : 7,
+		"SR" : 187.43,
+		"Avg_rt" : 87.32
+	}
+}
+{
+	"_id" : ObjectId("5d774461d1121bb4799bc34c"),
+	"name" : "ganpatiji",
+	"age" : 20,
+	"teams" : [
+		"MI",
+		"CSK"
+	],
+	"specialization" : [
+		"All Rounder"
+	],
+	"information" : {
+		"runs" : 8789,
+		"catches" : 368,
+		"years" : 11,
+		"SR" : 172.79,
+		"Avg_rt" : 82.32,
+		"wickets" : 453,
+		"Avg" : 35.65,
+		"Economy" : 7.8
+	}
+}
+{
+	"_id" : ObjectId("5d774549d1121bb4799bc34d"),
+	"name" : "krishnaaji",
+	"age" : 22,
+	"teams" : [
+		"MI",
+		"CSK",
+		"KXIP"
+	],
+	"specialization" : [
+		"All Rounder"
+	],
+	"information" : {
+		"runs" : 5789,
+		"catches" : 258,
+		"years" : 8,
+		"SR" : 122.79,
+		"Avg_rt" : 42.32,
+		"wickets" : 353,
+		"Avg" : 55.65,
+		"Economy" : 9.8
+	}
+}
+{
+	"_id" : ObjectId("5d77470c9a67df2f987c758c"),
+	"name" : "shiva",
+	"age" : 22,
+	"teams" : [
+		"RCB",
+		"RR",
+		"SRH"
+	],
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 4563,
+		"SR" : 132.23,
+		"Avg_rt" : 43.89,
+		"wickets" : 309,
+		"catches" : 194,
+		"years" : 6,
+		"Avg" : 47.43,
+		"Economy" : 7.73
+	}
+}
+{
+	"_id" : ObjectId("5d833af9dad935e9e9bcbde3"),
+	"age" : 21,
+	"information" : {
+		"runs" : 4763,
+		"SR" : 152.23,
+		"Avg_rt" : 53.89,
+		"wickets" : 289,
+		"catches" : 198,
+		"years" : 4,
+		"Avg" : 57.43,
+		"Economy" : 8.73
+	},
+	"name" : "hanumanji",
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"teams" : [
+		"RCB",
+		"SRH"
+	]
+}
+{
+	"_id" : ObjectId("5d83413777c0dac10a6cdf8e"),
+	"name" : "shiva",
+	"age" : 22,
+	"teams" : [
+		"RCB",
+		"RR",
+		"SRH"
+	],
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 4563,
+		"SR" : 132.23,
+		"Avg_rt" : 43.89,
+		"wickets" : 309,
+		"catches" : 194,
+		"years" : 6,
+		"Avg" : 47.43,
+		"Economy" : 7.73
+	}
+}
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}])
+> db.Criclet.aggregate([{$group : {id : "$name",total_games : {$sum:1}}}])
+assert: command failed: {
+	"errmsg" : "exception: the group aggregate field 'id' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'id' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T10:57:28.702+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'id' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}])
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}]);
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:"$runs"}}}]);
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:"$runs"}}}])
+> db.Cricket.find().pretty();
+{
+	"_id" : ObjectId("5d773c78d1121bb4799bc352"),
+	"name" : "Priym Jain",
+	"age" : 20,
+	"teams" : [
+		"KKR",
+		"SRH",
+		"CSK"
+	],
+	"specialization" : [
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 7789,
+		"catches" : 352,
+		"years" : 11,
+		"SR" : 157.43,
+		"Avg_rt" : 67.32
+	}
+}
+{
+	"_id" : ObjectId("5d773e7ad1121bb4799bc34a"),
+	"name" : "raju",
+	"age" : 21,
+	"teams" : [
+		"DC",
+		"CSK"
+	],
+	"specialization" : [
+		"Bowler"
+	],
+	"information" : {
+		"wickets" : 609,
+		"catches" : 188,
+		"years" : 8,
+		"Avg" : 27.43,
+		"Economy" : 8.53
+	}
+}
+{
+	"_id" : ObjectId("5d774290d1121bb4799bc34b"),
+	"name" : "chintu",
+	"age" : 19,
+	"teams" : [
+		"KKR",
+		"MI"
+	],
+	"specialization" : [
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 9789,
+		"catches" : 288,
+		"years" : 7,
+		"SR" : 187.43,
+		"Avg_rt" : 87.32
+	}
+}
+{
+	"_id" : ObjectId("5d774461d1121bb4799bc34c"),
+	"name" : "ganpatiji",
+	"age" : 20,
+	"teams" : [
+		"MI",
+		"CSK"
+	],
+	"specialization" : [
+		"All Rounder"
+	],
+	"information" : {
+		"runs" : 8789,
+		"catches" : 368,
+		"years" : 11,
+		"SR" : 172.79,
+		"Avg_rt" : 82.32,
+		"wickets" : 453,
+		"Avg" : 35.65,
+		"Economy" : 7.8
+	}
+}
+{
+	"_id" : ObjectId("5d774549d1121bb4799bc34d"),
+	"name" : "krishnaaji",
+	"age" : 22,
+	"teams" : [
+		"MI",
+		"CSK",
+		"KXIP"
+	],
+	"specialization" : [
+		"All Rounder"
+	],
+	"information" : {
+		"runs" : 5789,
+		"catches" : 258,
+		"years" : 8,
+		"SR" : 122.79,
+		"Avg_rt" : 42.32,
+		"wickets" : 353,
+		"Avg" : 55.65,
+		"Economy" : 9.8
+	}
+}
+{
+	"_id" : ObjectId("5d77470c9a67df2f987c758c"),
+	"name" : "shiva",
+	"age" : 22,
+	"teams" : [
+		"RCB",
+		"RR",
+		"SRH"
+	],
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 4563,
+		"SR" : 132.23,
+		"Avg_rt" : 43.89,
+		"wickets" : 309,
+		"catches" : 194,
+		"years" : 6,
+		"Avg" : 47.43,
+		"Economy" : 7.73
+	}
+}
+{
+	"_id" : ObjectId("5d833af9dad935e9e9bcbde3"),
+	"age" : 21,
+	"information" : {
+		"runs" : 4763,
+		"SR" : 152.23,
+		"Avg_rt" : 53.89,
+		"wickets" : 289,
+		"catches" : 198,
+		"years" : 4,
+		"Avg" : 57.43,
+		"Economy" : 8.73
+	},
+	"name" : "hanumanji",
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"teams" : [
+		"RCB",
+		"SRH"
+	]
+}
+{
+	"_id" : ObjectId("5d83413777c0dac10a6cdf8e"),
+	"name" : "shiva",
+	"age" : 22,
+	"teams" : [
+		"RCB",
+		"RR",
+		"SRH"
+	],
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 4563,
+		"SR" : 132.23,
+		"Avg_rt" : 43.89,
+		"wickets" : 309,
+		"catches" : 194,
+		"years" : 6,
+		"Avg" : 47.43,
+		"Economy" : 7.73
+	}
+}
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}])
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}]).pretty7();
+2019-10-01T11:05:35.233+0530 E QUERY    TypeError: Object #<Object> has no method 'pretty7'
+    at (shell):1:75
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}])
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}]).find();
+2019-10-01T11:06:09.767+0530 E QUERY    TypeError: Object #<Object> has no method 'find'
+    at (shell):1:75
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}]).pretty();
+> db.Criclet.aggregate([{$group : {_id : "$age",total_games : {$sum:1}}}]).pretty();
+> db.Criclet.aggregate([{$group : {_id : "$age",total_games : {$sum:1}}}])
+> db.Criclet.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}])
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> db.Cricket.find().pretty();
+{
+	"_id" : ObjectId("5d773c78d1121bb4799bc352"),
+	"name" : "Priym Jain",
+	"age" : 20,
+	"teams" : [
+		"KKR",
+		"SRH",
+		"CSK"
+	],
+	"specialization" : [
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 7789,
+		"catches" : 352,
+		"years" : 11,
+		"SR" : 157.43,
+		"Avg_rt" : 67.32
+	}
+}
+{
+	"_id" : ObjectId("5d773e7ad1121bb4799bc34a"),
+	"name" : "raju",
+	"age" : 21,
+	"teams" : [
+		"DC",
+		"CSK"
+	],
+	"specialization" : [
+		"Bowler"
+	],
+	"information" : {
+		"wickets" : 609,
+		"catches" : 188,
+		"years" : 8,
+		"Avg" : 27.43,
+		"Economy" : 8.53
+	}
+}
+{
+	"_id" : ObjectId("5d774290d1121bb4799bc34b"),
+	"name" : "chintu",
+	"age" : 19,
+	"teams" : [
+		"KKR",
+		"MI"
+	],
+	"specialization" : [
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 9789,
+		"catches" : 288,
+		"years" : 7,
+		"SR" : 187.43,
+		"Avg_rt" : 87.32
+	}
+}
+{
+	"_id" : ObjectId("5d774461d1121bb4799bc34c"),
+	"name" : "ganpatiji",
+	"age" : 20,
+	"teams" : [
+		"MI",
+		"CSK"
+	],
+	"specialization" : [
+		"All Rounder"
+	],
+	"information" : {
+		"runs" : 8789,
+		"catches" : 368,
+		"years" : 11,
+		"SR" : 172.79,
+		"Avg_rt" : 82.32,
+		"wickets" : 453,
+		"Avg" : 35.65,
+		"Economy" : 7.8
+	}
+}
+{
+	"_id" : ObjectId("5d774549d1121bb4799bc34d"),
+	"name" : "krishnaaji",
+	"age" : 22,
+	"teams" : [
+		"MI",
+		"CSK",
+		"KXIP"
+	],
+	"specialization" : [
+		"All Rounder"
+	],
+	"information" : {
+		"runs" : 5789,
+		"catches" : 258,
+		"years" : 8,
+		"SR" : 122.79,
+		"Avg_rt" : 42.32,
+		"wickets" : 353,
+		"Avg" : 55.65,
+		"Economy" : 9.8
+	}
+}
+{
+	"_id" : ObjectId("5d77470c9a67df2f987c758c"),
+	"name" : "shiva",
+	"age" : 22,
+	"teams" : [
+		"RCB",
+		"RR",
+		"SRH"
+	],
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 4563,
+		"SR" : 132.23,
+		"Avg_rt" : 43.89,
+		"wickets" : 309,
+		"catches" : 194,
+		"years" : 6,
+		"Avg" : 47.43,
+		"Economy" : 7.73
+	}
+}
+{
+	"_id" : ObjectId("5d833af9dad935e9e9bcbde3"),
+	"age" : 21,
+	"information" : {
+		"runs" : 4763,
+		"SR" : 152.23,
+		"Avg_rt" : 53.89,
+		"wickets" : 289,
+		"catches" : 198,
+		"years" : 4,
+		"Avg" : 57.43,
+		"Economy" : 8.73
+	},
+	"name" : "hanumanji",
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"teams" : [
+		"RCB",
+		"SRH"
+	]
+}
+{
+	"_id" : ObjectId("5d83413777c0dac10a6cdf8e"),
+	"name" : "shiva",
+	"age" : 22,
+	"teams" : [
+		"RCB",
+		"RR",
+		"SRH"
+	],
+	"specialization" : [
+		"Bowler",
+		"Batsman"
+	],
+	"information" : {
+		"runs" : 4563,
+		"SR" : 132.23,
+		"Avg_rt" : 43.89,
+		"wickets" : 309,
+		"catches" : 194,
+		"years" : 6,
+		"Avg" : 47.43,
+		"Economy" : 7.73
+	}
+}
+> db.Cricket.aggregate([{$group : {_id : "$name",total_games : {$sum:1}}}])
+{ "_id" : "hanumanji", "total_games" : 1 }
+{ "_id" : "krishnaaji", "total_games" : 1 }
+{ "_id" : "ganpatiji", "total_games" : 1 }
+{ "_id" : "chintu", "total_games" : 1 }
+{ "_id" : "shiva", "total_games" : 2 }
+{ "_id" : "raju", "total_games" : 1 }
+{ "_id" : "Priym Jain", "total_games" : 1 }
+> db.Cricket.aggregate([{$group : {_id : "$age",total_games : {$sum:1}}}])
+{ "_id" : 22, "total_games" : 3 }
+{ "_id" : 19, "total_games" : 1 }
+{ "_id" : 21, "total_games" : 2 }
+{ "_id" : 20, "total_games" : 2 }
+> db.Cricket.aggregate([{$project : {name:1,age:1,information.runs:1}}]);
+2019-10-01T11:21:10.343+0530 E QUERY    SyntaxError: Unexpected token .
+> db.Cricket.aggregate([{$project : {name:1,age:1}}]);
+{ "_id" : ObjectId("5d773c78d1121bb4799bc352"), "name" : "Priym Jain", "age" : 20 }
+{ "_id" : ObjectId("5d773e7ad1121bb4799bc34a"), "name" : "raju", "age" : 21 }
+{ "_id" : ObjectId("5d774290d1121bb4799bc34b"), "name" : "chintu", "age" : 19 }
+{ "_id" : ObjectId("5d774461d1121bb4799bc34c"), "name" : "ganpatiji", "age" : 20 }
+{ "_id" : ObjectId("5d774549d1121bb4799bc34d"), "name" : "krishnaaji", "age" : 22 }
+{ "_id" : ObjectId("5d77470c9a67df2f987c758c"), "name" : "shiva", "age" : 22 }
+{ "_id" : ObjectId("5d833af9dad935e9e9bcbde3"), "age" : 21, "name" : "hanumanji" }
+{ "_id" : ObjectId("5d83413777c0dac10a6cdf8e"), "name" : "shiva", "age" : 22 }
+> db.Cricket.aggregate([{$project : {name:1,age:1,runs:1}}]);
+{ "_id" : ObjectId("5d773c78d1121bb4799bc352"), "name" : "Priym Jain", "age" : 20 }
+{ "_id" : ObjectId("5d773e7ad1121bb4799bc34a"), "name" : "raju", "age" : 21 }
+{ "_id" : ObjectId("5d774290d1121bb4799bc34b"), "name" : "chintu", "age" : 19 }
+{ "_id" : ObjectId("5d774461d1121bb4799bc34c"), "name" : "ganpatiji", "age" : 20 }
+{ "_id" : ObjectId("5d774549d1121bb4799bc34d"), "name" : "krishnaaji", "age" : 22 }
+{ "_id" : ObjectId("5d77470c9a67df2f987c758c"), "name" : "shiva", "age" : 22 }
+{ "_id" : ObjectId("5d833af9dad935e9e9bcbde3"), "age" : 21, "name" : "hanumanji" }
+{ "_id" : ObjectId("5d83413777c0dac10a6cdf8e"), "name" : "shiva", "age" : 22 }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1}}]);
+{ "name" : "Priym Jain", "age" : 20 }
+{ "name" : "raju", "age" : 21 }
+{ "name" : "chintu", "age" : 19 }
+{ "name" : "ganpatiji", "age" : 20 }
+{ "name" : "krishnaaji", "age" : 22 }
+{ "name" : "shiva", "age" : 22 }
+{ "age" : 21, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22 }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,runs:1}}]);
+{ "name" : "Priym Jain", "age" : 20 }
+{ "name" : "raju", "age" : 21 }
+{ "name" : "chintu", "age" : 19 }
+{ "name" : "ganpatiji", "age" : 20 }
+{ "name" : "krishnaaji", "age" : 22 }
+{ "name" : "shiva", "age" : 22 }
+{ "age" : 21, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22 }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "runs" : 5789 } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "age" : 21, "information" : { "runs" : 4763 }, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{wickets:1}}}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : {  } }
+{ "name" : "raju", "age" : 21, "information" : { "wickets" : 609 } }
+{ "name" : "chintu", "age" : 19, "information" : {  } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "wickets" : 453 } }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "wickets" : 353 } }
+{ "name" : "shiva", "age" : 22, "information" : { "wickets" : 309 } }
+{ "age" : 21, "information" : { "wickets" : 289 }, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22, "information" : { "wickets" : 309 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1},{$group : {_id:"$teams",num_team:{sum:1}}}}}]);
+2019-10-01T11:28:42.583+0530 E QUERY    SyntaxError: Unexpected token {
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{wickets:1}}},{$group : {_id:"$teams",num_team:{sum:1}}]);
+... 
+... 
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1},{$group : {_id:"$teams",num_team:{sum:1}}}}}])
+2019-10-01T11:30:29.877+0530 E QUERY    SyntaxError: Unexpected token {
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{wickets:1}}},{$group : {_id:"$teams",num_team:{sum:1}}]);
+... ^C
+
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{wickets:1}}},{$group : {_id:"$teams",num_team:{sum:1}}]);])
+... ^C
+
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{wickets:1}}},{$group : {_id:"$teams",num_team:{sum:1}}])
+... db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1},{$group : {_id:"$teams",num_team:{sum:1}}}}}]);
+... 
+... 
+> 
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "runs" : 5789 } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "age" : 21, "information" : { "runs" : 4763 }, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,teams:1}}]);
+{ "name" : "Priym Jain", "age" : 20, "teams" : [ "KKR", "SRH", "CSK" ] }
+{ "name" : "raju", "age" : 21, "teams" : [ "DC", "CSK" ] }
+{ "name" : "chintu", "age" : 19, "teams" : [ "KKR", "MI" ] }
+{ "name" : "ganpatiji", "age" : 20, "teams" : [ "MI", "CSK" ] }
+{ "name" : "krishnaaji", "age" : 22, "teams" : [ "MI", "CSK", "KXIP" ] }
+{ "name" : "shiva", "age" : 22, "teams" : [ "RCB", "RR", "SRH" ] }
+{ "age" : 21, "name" : "hanumanji", "teams" : [ "RCB", "SRH" ] }
+{ "name" : "shiva", "age" : 22, "teams" : [ "RCB", "RR", "SRH" ] }
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$project : {_id:0,name:1,age:1,information:{runs:1}}}])
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{information:{runs:-1}}}])
+assert: command failed: {
+	"errmsg" : "exception: the only expression supported by $sort right now is {$meta: 'textScore'}",
+	"code" : 17312,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the only expression supported by $sort right now is {$meta: 'textScore'}",
+	"code" : 17312,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T11:37:15.319+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: the only expression supported by $sort right now is {$meta: 'textScore'}",
+	"code" : 17312,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{runs:-1}}])
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{runs:1}}])
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{information.runs:1}}])
+2019-10-01T11:38:23.173+0530 E QUERY    SyntaxError: Unexpected token .
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$group:{_id:"$name",total:{sum:"$information.runs"}}},{$sort:{information:{total:-1}}}])
+assert: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T11:40:50.588+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$group:{_id:"$name",total:{sum:"$runs"}}},{$sort:{information:{total:-1}}}])
+assert: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T11:41:14.827+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$group:{_id:"$name",total:{sum:"$runs"}}},{$sort:{information:{total:-1}}}])
+assert: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T11:44:53.295+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: unknown group operator 'sum'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$group:{_id:"$name",total:{$sum:"$runs"}}},{$sort:{information:{total:-1}}}])
+assert: command failed: {
+	"errmsg" : "exception: the only expression supported by $sort right now is {$meta: 'textScore'}",
+	"code" : 17312,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the only expression supported by $sort right now is {$meta: 'textScore'}",
+	"code" : 17312,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T11:45:23.878+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: the only expression supported by $sort right now is {$meta: 'textScore'}",
+	"code" : 17312,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$match : {teams:"KKR"}},{$group:{_id:"$name",total:{$sum:"$runs"}}}])
+{ "_id" : "chintu", "total" : 0 }
+{ "_id" : "Priym Jain", "total" : 0 }
+> db.Cricket.aggregate([{$match : {teams:"RCB"}},{$group:{_id:"$name",total:{$sum:"$runs"}}}])
+{ "_id" : "hanumanji", "total" : 0 }
+{ "_id" : "shiva", "total" : 0 }
+> db.Cricket.aggregate([{$match : {teams:"RCB"}},{$group:{_id:"$name",total:{$sum:"$information.runs"}}}])
+{ "_id" : "hanumanji", "total" : 4763 }
+{ "_id" : "shiva", "total" : 9126 }
+> db.Cricket.aggregate([{$match : {teams:"RCB"}},{$group:{_id:"$name",total:{$sum:"$information.runs"}}},{$sort:{total:1}}])
+{ "_id" : "hanumanji", "total" : 4763 }
+{ "_id" : "shiva", "total" : 9126 }
+> db.Cricket.aggregate([{$match : {teams:"RCB"}},{$group:{_id:"$name",total:{$sum:"$information.runs"}}},{$sort:{total:-1}}])
+{ "_id" : "shiva", "total" : 9126 }
+{ "_id" : "hanumanji", "total" : 4763 }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "runs" : 5789 } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "age" : 21, "information" : { "runs" : 4763 }, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$limit:4}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$limit:4},{$sort:{"$information.runs":1}}]);
+assert: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T12:03:19.524+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$limit:4},{$sort:{information{runs:1}}}]);
+2019-10-01T12:03:39.547+0530 E QUERY    SyntaxError: Unexpected token {
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$limit:4},{$sort:{runs:-1}}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{runs:-1}}]);
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "runs" : 5789 } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "age" : 21, "information" : { "runs" : 4763 }, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{$runs:1}}]);
+assert: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T12:06:35.064+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{"$runs":1}}]);
+assert: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T12:06:45.105+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{"$information.runs":-1}}]);
+assert: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12
+2019-10-01T12:06:58.632+0530 E QUERY    Error: command failed: {
+	"errmsg" : "exception: FieldPath field names may not start with '$'.",
+	"code" : 16410,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:254:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1278:12)
+    at (shell):1:12 at src/mongo/shell/assert.js:13
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{"information.runs":-1}}]);
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "runs" : 5789 } }
+{ "age" : 21, "information" : { "runs" : 4763 }, "name" : "hanumanji" }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$sort:{"information.runs":1}}]);
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "name" : "shiva", "age" : 22, "information" : { "runs" : 4563 } }
+{ "age" : 21, "information" : { "runs" : 4763 }, "name" : "hanumanji" }
+{ "name" : "krishnaaji", "age" : 22, "information" : { "runs" : 5789 } }
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$limit:4},{$sort:{"information.runs":1}}]);
+{ "name" : "raju", "age" : 21, "information" : {  } }
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+> db.Cricket.aggregate([{$project : {_id:0,name:1,age:1,information:{runs:1}}},{$limit:4},{$sort:{"information.runs":-1}}]);
+{ "name" : "chintu", "age" : 19, "information" : { "runs" : 9789 } }
+{ "name" : "ganpatiji", "age" : 20, "information" : { "runs" : 8789 } }
+{ "name" : "Priym Jain", "age" : 20, "information" : { "runs" : 7789 } }
+{ "name" : "raju", "age" : 21, "information" : {  } }
+> 
+
